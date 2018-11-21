@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: template
+  annotations:
+    description: "Description"
+objects:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: ${NAME}
+    namespace: default
+  data: 
+    property: ${PROPERTY_VALUE}
+parameters:
+- description: name for the configmap
+  name: NAME
+- description: value of the single property that it holds
+  name: PROPERTY_VALUE

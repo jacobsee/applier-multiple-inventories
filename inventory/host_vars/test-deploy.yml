@@ -1,0 +1,38 @@
+---
+ansible_connection: local
+
+inventory1:
+- object: configmap-template
+  content:
+  - name: "configmap-template-1"
+    template: "templates/config.yaml"
+    params_from_vars: 
+      NAME: test-1
+      PROPERTY_VALUE: this is the value of the first test
+    namespace: "{{ test_namespace }}"
+    tags:
+    - app-build
+
+inventory2:
+- object: configmap-template
+  content:
+  - name: "configmap-template-2"
+    template: "templates/config.yaml"
+    params_from_vars: 
+      NAME: test-2
+      PROPERTY_VALUE: this is the value of the second test
+    namespace: "{{ test_namespace }}"
+    tags:
+    - app-build
+
+inventory3:
+- object: configmap-template
+  content:
+  - name: "configmap-template-3"
+    template: "templates/config.yaml"
+    params_from_vars: 
+      NAME: test-3
+      PROPERTY_VALUE: this is the value of the third test
+    namespace: "{{ test_namespace }}"
+    tags:
+    - app-build

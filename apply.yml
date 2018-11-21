@@ -1,0 +1,14 @@
+---
+- name: Deploy test configmaps
+  hosts: "test"
+  tasks:
+    - include_role:
+        name: openshift-applier/roles/openshift-applier
+      tags:
+        - openshift-applier
+      vars:
+        openshift_cluster_content: "{{ item }}"
+      with_items:
+        - "{{ inventory1 }}"
+        - "{{ inventory2 }}"
+        - "{{ inventory3 }}"
